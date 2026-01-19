@@ -32,7 +32,7 @@ from telegram.ext import (
 from telegram.constants import ParseMode
 
 # ==================== CẤU HÌNH ====================
-TOKEN = "YOUR_BOT_TOKEN_HERE"  # Thay thế bằng token của bạn
+TOKEN = "8505057122:AAGb6wD5T_tu2bnRuDT-atkGsqidjsmLxms"  # Thay thế bằng token của bạn
 ADMIN_CHAT_ID = None  # ID của admin để nhận thông báo
 
 # Database
@@ -1246,3 +1246,4 @@ if __name__ == '__main__':
         print("Get your token from @BotFather on Telegram")
     else:
         main()
+
