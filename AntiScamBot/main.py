@@ -23,11 +23,15 @@ from handlers.report import (
     report_confirm,
     NAME, USERNAME, LINK, ID, AMOUNT, CONFIRM
 )
-from handlers.help import help_command
-from handlers.safety import safety_command
-from handlers.donate import donate_command
-from handlers.trusted import trusted_groups_command, trusted_admins_command
-from handlers.stats import stats_command
+from AntiScamBot.handlers.start import start_command, about_command
+from AntiScamBot.handlers.language import language_command, language_callback
+from AntiScamBot.handlers.check import check_command, process_check
+from AntiScamBot.handlers.report import *
+from AntiScamBot.handlers.help import help_command
+from AntiScamBot.handlers.safety import safety_command
+from AntiScamBot.handlers.donate import donate_command
+from AntiScamBot.handlers.trusted import trusted_groups_command, trusted_admins_command
+from AntiScamBot.handlers.stats import stats_command
 
 # Setup logging
 logging.basicConfig(
@@ -84,3 +88,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
