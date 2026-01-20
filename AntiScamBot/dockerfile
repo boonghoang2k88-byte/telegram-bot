@@ -1,0 +1,54 @@
+# Dockerfile cho Render deployment
+FROM python:3.11-slim
+
+# Metadata
+LABEL maintainer="AntiScamBot Team" \
+      version="1.0.0" \
+      description="Telegram Bot for scam checking and reporting"
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements first (caching layer)
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir gunicorn  # Cho webhook nếu cần
+
+# Copy application
+COPY . .
+
+# Tạo file __init__.py nếu thiếu
+RUN echo "Tạo __init__.py files..." && \
+    for dir in config core handlers services db utils locales; do \
+        if [ -d "$dir" ] && [ ! -f "$dir/__init__.py" ]; then \
+            echo "# Package" > "$dir/__init__.py"; \
+            echo "✅ Đã tạo $dir/__init__.py"; \
+        fi; \
+    done
+
+# Tạo thư mục cho data
+RUN mkdir -p data logs
+
+# Set permissions
+RUN chmod +x main.py
+
+# Environment variables
+ENV PYTHONPATH=/app \
+    TOKEN="" \
+    DATABASE_URL="sqlite:///data/bot_database.db" \
+    WEBHOOK_URL="" \
+    PORT=8080 \
+    HOST=0.0.0.0
+
+# Expose port
+EXPOSE ${PORT}
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD python -c "import requests; requests.get('http://localhost:${PORT}/health', timeout=2)" || exit 1
+
+# Run the bot
+CMD ["python", "main.py"]
