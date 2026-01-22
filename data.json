@@ -1,0 +1,53 @@
+{
+  "users": {
+    "7854027039": {
+      "language": "vi",
+      "reports_today": 1,
+      "last_report_date": "2026-01-22",
+      "report_count": 1,
+      "check_count": 1,
+      "join_date": "2026-01-22T21:41:06.417967",
+      "username": "siculator98",
+      "first_name": "ZH",
+      "last_name": "09"
+    }
+  },
+  "reports": [
+    {
+      "user_id": 7854027039,
+      "username": "@hsusja",
+      "telegram_link": "https://t.me/kugame_bot/kbapp?startapp=rdr_fan",
+      "wallet_id": "Binance 72728229",
+      "amount": 100.0,
+      "product": "etc",
+      "id": 1,
+      "timestamp": "2026-01-22T21:42:17.911962",
+      "status": "active"
+    }
+  ],
+  "scammers": {
+    "@hsusja_binance 72728229": {
+      "username": "@hsusja",
+      "telegram_link": "https://t.me/kugame_bot/kbapp?startapp=rdr_fan",
+      "wallet_id": "Binance 72728229",
+      "report_count": 1,
+      "reporter_count": 1,
+      "reporters": [
+        "7854027039"
+      ],
+      "total_amount": 100.0,
+      "products": [
+        "etc"
+      ],
+      "first_report": "2026-01-22T21:42:17.911962",
+      "last_report": "2026-01-22T21:42:17.911962"
+    }
+  },
+  "statistics": {
+    "total_reports": 1,
+    "total_users": 1,
+    "total_checks": 0,
+    "total_scammers": 1,
+    "total_amount_scammed": 100.0
+  }
+}
